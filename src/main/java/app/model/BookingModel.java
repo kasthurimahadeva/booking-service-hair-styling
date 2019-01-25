@@ -10,25 +10,22 @@ import java.util.Date;
 
 @Entity
 public class BookingModel {
-    //    @Id
-//    @GeneratedValue(generator="system-uuid")
-//    @GenericGenerator(name="system-uuid", strategy = "uuid")
     @Id
-//    @GeneratedValue(strategy= GenerationType.AUTO)
     @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
     private String SalonId;
     private String stylistId;
-    //    private Date bookingDates;
+    private Date bookingDate;
     private String status;
 
     public BookingModel() {
     }
 
-    public BookingModel(String salonId, String stylistId, String status) {
+    public BookingModel(String salonId, String stylistId, Date bookingDate, String status) {
         SalonId = salonId;
         this.stylistId = stylistId;
+        this.bookingDate = bookingDate;
         this.status = status;
     }
 
@@ -54,6 +51,14 @@ public class BookingModel {
 
     public void setStylistId(String stylistId) {
         this.stylistId = stylistId;
+    }
+
+    public Date getBookingDate() {
+        return bookingDate;
+    }
+
+    public void setBookingDate(Date bookingDate) {
+        this.bookingDate = bookingDate;
     }
 
     public String getStatus() {
